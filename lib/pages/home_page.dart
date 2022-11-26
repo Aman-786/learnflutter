@@ -8,12 +8,20 @@ class HomePgae extends StatefulWidget {
 }
 
 class _HomePgaeState extends State<HomePgae> {
+  String str = "world";
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("hello world"),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(
+          child: Text("Home aman"),
+        ),
       ),
+      body: Center(
+        child: Text("hello $str"),
+      ),
+      drawer: Drawer(),
     );
   }
 }
