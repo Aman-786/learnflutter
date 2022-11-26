@@ -15,13 +15,17 @@ class _HomePgaeState extends State<HomePgae> {
     return Scaffold(
       appBar: AppBar(
         title: const Center(
-          child: Text("Home aman"),
+          child: Text("Home"),
         ),
       ),
       body: Center(
         child: Text("hello $str"),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(
+        child: Center(
+          child: Text("data"),
+        ),
+      ),
     );
   }
 }
