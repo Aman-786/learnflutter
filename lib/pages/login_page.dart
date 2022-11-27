@@ -8,6 +8,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  String name = "";
+  bool choosebutton = false;
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -22,9 +25,9 @@ class _LoginState extends State<Login> {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                "welcome user's",
-                style: TextStyle(
+              Text(
+                "welcome $name",
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
@@ -38,6 +41,10 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: [
                     TextFormField(
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      },
                       decoration: const InputDecoration(
                         hintText: "example@email.com",
                         labelText: "Username",
@@ -49,7 +56,7 @@ class _LoginState extends State<Login> {
                     TextFormField(
                       obscureText: true,
                       decoration: const InputDecoration(
-                        labelText: "password",
+                        labelText: "Password",
                       ),
                     ),
                   ],
@@ -74,13 +81,50 @@ class _LoginState extends State<Login> {
                   ],
                 ),
               ),
-              ElevatedButton(
-                style: TextButton.styleFrom(minimumSize: const Size(150, 40)),
-                onPressed: () {
+              InkWell(
+                onTap: () async {
+                  setState(() {
+                    choosebutton = true;
+                  });
+
+                  await Future.delayed(const Duration(milliseconds: 350));
+                  // ignore: use_build_context_synchronously
                   Navigator.pushNamed(context, "/home");
                 },
-                child: const Text("Sign in"),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  width: choosebutton ? 100 : 150,
+                  height: 40,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple,
+                    // shape: choosebutton ? BoxShape.circle : BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(
+                      choosebutton ? 20 : 8,
+                    ),
+                  ),
+                  child: choosebutton
+                      ? const Icon(
+                          Icons.done,
+                          color: Colors.white,
+                        )
+                      : const Text(
+                          "Login",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                ),
               ),
+              // ElevatedButton(
+              //   style: TextButton.styleFrom(minimumSize: const Size(150, 40)),
+              //   onPressed: () {
+              //     Navigator.pushNamed(context, "/home");
+              //   },
+              //   child: const Text("Sign in"),
+              // ),
             ],
           ),
         ));
