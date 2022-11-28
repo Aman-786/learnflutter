@@ -87,7 +87,7 @@ class _LoginState extends State<Login> {
                     choosebutton = true;
                   });
 
-                  await Future.delayed(const Duration(milliseconds: 350));
+                  await Future.delayed(const Duration(milliseconds: 300));
                   // ignore: use_build_context_synchronously
                   Navigator.pushNamed(context, "/home");
                 },
