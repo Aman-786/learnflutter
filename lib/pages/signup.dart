@@ -88,14 +88,31 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
 
-              const SizedBox(
-                height: 50,
+              // const SizedBox(
+              //   height: 50,
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("already a member ?"),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/login");
+                    },
+                    child: const Text(
+                      "login",
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-
               Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, "/login");
+                    Navigator.pushNamed(context, "/home");
                   },
                   child: Container(
                     width: 200,
@@ -114,7 +131,10 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
