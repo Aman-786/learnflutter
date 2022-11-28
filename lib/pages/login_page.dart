@@ -1,3 +1,5 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -73,7 +75,9 @@ class _LoginState extends State<Login> {
                     const Text("not a member ? "),
                     // Spacer(),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/signup");
+                        },
                         child: const Text(
                           "register",
                           style: TextStyle(fontWeight: FontWeight.bold),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tut1/pages/login_page.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -24,7 +25,7 @@ class _SignUpState extends State<SignUp> {
             // mainAxisAlignment: MainAxisAlignment.center
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/images/hero.png'),
+              Image.asset('assets/images/signuphero.png'),
 
               //sign up heading
               const Padding(
@@ -92,19 +93,24 @@ class _SignUpState extends State<SignUp> {
               ),
 
               Center(
-                child: Container(
-                  width: 200,
-                  height: 40,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Text(
-                    "Sign up",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/login");
+                  },
+                  child: Container(
+                    width: 200,
+                    height: 40,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Text(
+                      "Sign up",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
